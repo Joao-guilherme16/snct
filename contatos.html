@@ -180,6 +180,76 @@
               </div>
             </div>
 
+            <!-- JOGO: CAÇA AOS ALUNOS -->
+            <section
+              class="bg-[#f5f3ff] rounded-xl p-5 sm:p-8 mb-8 border-2 border-[#2e1065]"
+            >
+              <h2
+                class="text-xl sm:text-2xl font-bold text-[#2e1065] text-center mb-2"
+              >
+                🎯 Caça aos Alunos
+              </h2>
+
+              <p class="text-center text-gray-700 mb-5">
+                Encontre o integrante indicado antes que o tempo acabe!
+              </p>
+
+              <div class="flex justify-center gap-8 mb-5 text-center">
+                <div>
+                  <p class="text-sm text-gray-600">Pontuação</p>
+                  <p id="pontuacao" class="text-2xl font-bold text-[#2e1065]">
+                    0
+                  </p>
+                </div>
+
+                <div>
+                  <p class="text-sm text-gray-600">Tempo</p>
+                  <p id="tempo" class="text-2xl font-bold text-red-600">30</p>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg p-4 text-center mb-5">
+                <p class="text-sm text-gray-500">Encontre este aluno:</p>
+                <p id="alvo" class="text-lg font-bold text-[#2e1065]">
+                  Clique em começar!
+                </p>
+              </div>
+
+              <div id="opcoes" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <button
+                  disabled
+                  class="rounded-lg bg-gray-200 p-4 text-gray-500"
+                >
+                  João Guilherme
+                </button>
+                <button
+                  disabled
+                  class="rounded-lg bg-gray-200 p-4 text-gray-500"
+                >
+                  João Vitor
+                </button>
+                <button
+                  disabled
+                  class="rounded-lg bg-gray-200 p-4 text-gray-500"
+                >
+                  Lucas Pietro
+                </button>
+              </div>
+
+              <p id="mensagem" class="text-center font-semibold mt-5 mb-4">
+                Você consegue fazer quantos pontos?
+              </p>
+
+              <div class="text-center">
+                <button
+                  id="iniciar"
+                  class="bg-[#2e1065] hover:bg-[#3b0764] text-white font-bold px-6 py-3 rounded-lg transition-colors"
+                >
+                  Começar jogo
+                </button>
+              </div>
+            </section>
+
             <!-- =========================
                SOBRE O PROJETO
                ========================= -->
@@ -232,5 +302,7 @@
         Reserved
       </footer>
     </div>
+
+    <script src="js/script3.js"></script>
   </body>
 </html>
