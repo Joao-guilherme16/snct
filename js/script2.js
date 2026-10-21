@@ -1,313 +1,274 @@
+
 let pontos = {};
 let perguntaAtual = 0;
 
-const professores = [
-  "Ronaldo",
-  "Júlio",
-  "Heitor",
-  "Ibsen",
-  "Janice",
-  "Noboru",
-  "Kamyla",
-  "Ítalo",
-  "Guilherme",
-  "Carolina",
-  "Marcela",
-  "LaSalvia",
-  "Solange",
+const profissoes = [
+  "Desenvolvedor de software",
+  "Analista de dados",
+  "Designer gráfico",
+  "Psicólogo",
+  "Professor",
+  "Jornalista",
+  "Engenheiro",
+  "Profissional da saúde",
+  "Advogado",
+  "Administrador",
+  "Cientista",
+  "Técnico em informática",
+  "Empreendedor",
 ];
 
-const fotoProfessores = {
-  Ronaldo: "img/novoProfessor/semfotoMasculina.png",
-  Júlio: "img/novoProfessor/semfotoMasculina.png",
-  Heitor: "img/novoProfessor/heitor.png",
-  Ibsen: "img/novoProfessor/ibsen.png",
-  Janice: "img/novoProfessor/semfotoFeminina.png",
-  Noboru: "img/novoProfessor/semfotoMasculina.png",
-  Kamyla: "img/novoProfessor/kamyla.jpeg",
-  Ítalo: "img/novoProfessor/semfotoMasculina.png",
-  Guilherme: "img/novoProfessor/guilherme.png",
-  Carolina: "img/novoProfessor/carolina.jpg",
-  Marcela: "img/novoProfessor/semfotoFeminina.png",
-  LaSalvia: "img/novoProfessor/la-salvia.jpeg",
-  Solange: "img/novoProfessor/solange.png",
+const descricoesProfissoes = {
+  "Desenvolvedor de software":
+    "Você gosta de lógica, tecnologia e de criar soluções por meio da programação. Desenvolvimento de software pode combinar com seu perfil.",
+  "Analista de dados":
+    "Você gosta de encontrar padrões, interpretar informações e usar evidências para resolver problemas. A área de análise de dados pode combinar com você.",
+  "Designer gráfico":
+    "Você gosta de criatividade, comunicação visual e de transformar ideias em imagens e projetos. Design gráfico pode ser uma boa possibilidade.",
+  "Psicólogo":
+    "Você se interessa por comportamento, emoções e por ouvir as pessoas. A Psicologia pode combinar com seus interesses.",
+  "Professor":
+    "Você gosta de explicar ideias, compartilhar conhecimento e ajudar outras pessoas a aprender. A docência pode ser uma área interessante para você.",
+  "Jornalista":
+    "Você gosta de investigar assuntos, fazer perguntas e comunicar informações com clareza. Jornalismo pode combinar com seu perfil.",
+  "Engenheiro":
+    "Você gosta de entender como as coisas funcionam e encontrar soluções para desafios práticos. A Engenharia pode ser uma possibilidade.",
+  "Profissional da saúde":
+    "Você se interessa por cuidado, bem-estar e por contribuir diretamente para a vida das pessoas. As profissões da saúde podem combinar com você.",
+  "Advogado":
+    "Você gosta de argumentar, analisar situações e refletir sobre direitos e regras. Direito pode ser uma área a explorar.",
+  "Administrador":
+    "Você gosta de planejar, organizar tarefas e coordenar recursos para alcançar objetivos. Administração pode combinar com seu jeito de trabalhar.",
+  "Cientista":
+    "Você gosta de fazer perguntas, investigar fenômenos e descobrir como as coisas funcionam. Uma carreira científica pode combinar com sua curiosidade.",
+  "Técnico em informática":
+    "Você gosta de computadores, de resolver problemas técnicos e de ajudar a tecnologia a funcionar. A área de suporte e infraestrutura de TI pode combinar com você.",
+  "Empreendedor":
+    "Você gosta de tirar ideias do papel, tomar iniciativa e buscar soluções para necessidades reais. Empreendedorismo pode ser uma possibilidade para explorar.",
 };
 
-const descricoesProfessores = {
-  Ronaldo:
-    "Explicativo, paciente e dedicado a fazer com que todos entendam o conteúdo.",
-
-  Júlio:
-    "Prático, amigável e próximo da turma, sempre deixando o aprendizado mais leve.",
-
-  Heitor:
-    "Comunicativo, expressivo e muito envolvido em compartilhar o que sabe.",
-
-  Ibsen:
-    "Bem-humorado, descontraído e sempre capaz de deixar o ambiente mais divertido.",
-
-  Janice:
-    "Organizada, objetiva e planejada, gosta de manter tudo bem estruturado.",
-
-  Noboru:
-    "Persistente, dedicado e incentivador da prática, sempre buscando fazer você evoluir.",
-
-  Kamyla:
-    "Reflexiva, crítica e atenta às questões sociais e ao contexto das situações.",
-
-  Ítalo:
-    "Tranquilo, prestativo e ligado a atividades práticas e ao uso da tecnologia.",
-
-  Guilherme:
-    "Esforçado, dedicado e comprometido em fazer tudo da melhor maneira possível.",
-
-  Carolina:
-    "Justa, flexível e compreensiva, buscando sempre equilibrar as situações.",
-
-  Marcela:
-    "Expressiva, criativa e aberta ao diálogo e à troca de diferentes opiniões.",
-
-  LaSalvia:
-    "Firme, responsável e comprometido com a organização e o bom funcionamento das coisas.",
-
-  Solange:
-    "Descontraída, criativa e acolhedora, trazendo leveza para o ambiente.",
-};
-
-professores.forEach(function (professor) {
-  pontos[professor] = 0;
+profissoes.forEach(function (profissao) {
+  pontos[profissao] = 0;
 });
 
 const perguntas = [
   {
     pergunta:
-      "Quando você precisa aprender algo novo, qual jeito combina mais com você?",
+      "Quando surge um problema, qual abordagem mais combina com você?",
     alternativas: [
       {
-        texto: "Gosto de entender bem o assunto antes de começar.",
-        professor: "Ronaldo",
+        texto: "Divido o problema em etapas e procuro uma solução lógica.",
+        profissao: "Desenvolvedor de software",
       },
       {
-        texto: "Prefiro aprender fazendo e colocando a mão na massa.",
-        professor: "Júlio",
+        texto: "Analiso informações e procuro padrões nos dados.",
+        profissao: "Analista de dados",
       },
       {
-        texto:
-          "Gosto de explicar minhas ideias e conversar bastante sobre o assunto.",
-        professor: "Heitor",
+        texto: "Penso em uma solução criativa e visual.",
+        profissao: "Designer gráfico",
       },
       {
-        texto: "Aprendo melhor praticando e fazendo exercícios.",
-        professor: "Ibsen",
+        texto: "Converso com as pessoas envolvidas para entender a situação.",
+        profissao: "Psicólogo",
       },
     ],
   },
 
   {
-    pergunta: "Você recebeu uma tarefa difícil. Qual seria sua atitude?",
+    pergunta: "Qual atividade você teria mais vontade de fazer?",
     alternativas: [
       {
-        texto: "Organizaria tudo e seguiria um plano.",
-        professor: "Janice",
+        texto: "Explicar um assunto e ajudar alguém a aprender.",
+        profissao: "Professor",
       },
       {
-        texto: "Praticaria bastante até conseguir dominar o assunto.",
-        professor: "Noboru",
+        texto: "Investigar um acontecimento e contar o que descobri.",
+        profissao: "Jornalista",
       },
       {
-        texto:
-          "Tentaria entender o contexto e o que existe por trás do problema.",
-        professor: "Kamyla",
+        texto: "Projetar ou melhorar algo para funcionar melhor.",
+        profissao: "Engenheiro",
       },
       {
-        texto: "Procuraria uma maneira simples e prática de resolver.",
-        professor: "Ítalo",
+        texto: "Ajudar a cuidar da saúde e do bem-estar de alguém.",
+        profissao: "Profissional da saúde",
       },
     ],
   },
 
   {
-    pergunta: "Qual dessas características mais combina com você?",
+    pergunta: "Em um trabalho em grupo, qual papel você prefere assumir?",
     alternativas: [
       {
-        texto: "Sou dedicado e não desisto facilmente.",
-        professor: "Guilherme",
+        texto: "Analisar regras, argumentos e se a solução é justa.",
+        profissao: "Advogado",
       },
       {
-        texto: "Gosto de tratar as pessoas de forma justa.",
-        professor: "Carolina",
+        texto: "Organizar tarefas, prazos e responsabilidades.",
+        profissao: "Administrador",
       },
       {
-        texto: "Tenho um jeito próprio e marcante de me expressar.",
-        professor: "Marcela",
+        texto: "Investigar uma pergunta e testar hipóteses.",
+        profissao: "Cientista",
       },
       {
-        texto: "Gosto de deixar o ambiente mais leve e descontraído.",
-        professor: "Solange",
+        texto: "Resolver problemas nos computadores e nos sistemas.",
+        profissao: "Técnico em informática",
       },
     ],
   },
 
   {
-    pergunta:
-      "Quando alguém não entende algo que você explicou, o que você faria?",
+    pergunta: "O que mais desperta sua curiosidade?",
     alternativas: [
       {
-        texto: "Explicaria novamente, passo a passo, até ficar claro.",
-        professor: "Ronaldo",
+        texto: "Como aplicativos e sites são criados.",
+        profissao: "Desenvolvedor de software",
       },
       {
-        texto: "Iria ajudar a pessoa e tentaria explicar de outra maneira.",
-        professor: "Júlio",
+        texto: "O que números e gráficos revelam sobre uma situação.",
+        profissao: "Analista de dados",
       },
       {
-        texto: "Continuaria conversando e desenvolvendo a explicação.",
-        professor: "Heitor",
+        texto: "Como cores, formas e imagens transmitem mensagens.",
+        profissao: "Designer gráfico",
       },
       {
-        texto:
-          "Tentaria deixar a situação mais descontraída e depois ajudaria.",
-        professor: "Ibsen",
+        texto: "Por que as pessoas pensam, sentem e agem de certas maneiras.",
+        profissao: "Psicólogo",
       },
     ],
   },
 
   {
-    pergunta: "Como você organizaria uma aula ou apresentação?",
+    pergunta: "Qual projeto você escolheria para desenvolver?",
     alternativas: [
       {
-        texto:
-          "Planejaria tudo com antecedência e deixaria cada etapa organizada.",
-        professor: "Janice",
+        texto: "Criar um material para ensinar um tema difícil.",
+        profissao: "Professor",
       },
       {
-        texto: "Prepararia bastante coisa para praticar e testar.",
-        professor: "Noboru",
+        texto: "Produzir uma reportagem sobre um tema importante.",
+        profissao: "Jornalista",
       },
       {
-        texto: "Usaria exemplos relacionados à sociedade e ao cotidiano.",
-        professor: "Kamyla",
+        texto: "Construir ou aprimorar uma solução para um desafio prático.",
+        profissao: "Engenheiro",
       },
       {
-        texto:
-          "Prepararia uma atividade prática para colocar o conhecimento em ação.",
-        professor: "Ítalo",
+        texto: "Participar de uma campanha de prevenção e cuidado.",
+        profissao: "Profissional da saúde",
       },
     ],
   },
 
   {
-    pergunta: "Em um trabalho em grupo, qual papel mais combina com você?",
+    pergunta: "Ao tomar uma decisão importante, o que você prioriza?",
     alternativas: [
       {
-        texto:
-          "A pessoa que se dedica para garantir que o trabalho fique bem feito.",
-        professor: "Guilherme",
+        texto: "Comparar argumentos e considerar direitos e deveres.",
+        profissao: "Advogado",
       },
       {
-        texto: "A pessoa que tenta encontrar uma solução boa para todos.",
-        professor: "Carolina",
+        texto: "Definir objetivos e organizar os recursos disponíveis.",
+        profissao: "Administrador",
       },
       {
-        texto:
-          "A pessoa que traz ideias e participa bastante das discussões.",
-        professor: "Marcela",
+        texto: "Buscar evidências e verificar se as hipóteses fazem sentido.",
+        profissao: "Cientista",
       },
       {
-        texto: "A pessoa que ajuda a deixar o grupo mais à vontade.",
-        professor: "Solange",
+        texto: "Identificar a causa do problema e encontrar uma solução técnica.",
+        profissao: "Técnico em informática",
       },
     ],
   },
 
   {
-    pergunta: "Qual dessas atitudes mais combina com você?",
+    pergunta: "Qual dessas situações parece mais interessante para você?",
     alternativas: [
       {
-        texto: "Gosto de manter o foco e ajudar a manter tudo organizado.",
-        professor: "LaSalvia",
+        texto: "Transformar uma ideia em um produto ou serviço.",
+        profissao: "Empreendedor",
       },
       {
-        texto:
-          "Gosto de analisar as situações e pensar sobre diferentes pontos de vista.",
-        professor: "Ibsen",
+        texto: "Automatizar uma tarefa usando programação.",
+        profissao: "Desenvolvedor de software",
       },
       {
-        texto: "Acho importante que todos sejam tratados de forma justa.",
-        professor: "Carolina",
+        texto: "Usar dados para ajudar a escolher entre alternativas.",
+        profissao: "Analista de dados",
       },
       {
-        texto: "Prefiro resolver as situações com tranquilidade e bom humor.",
-        professor: "Solange",
+        texto: "Criar uma identidade visual para um projeto.",
+        profissao: "Designer gráfico",
       },
     ],
   },
 
   {
-    pergunta: "Qual dessas formas de estudar combina mais com você?",
+    pergunta: "Que tipo de contribuição você gostaria de fazer?",
     alternativas: [
       {
-        texto: "Estudar com explicações e anotações bem organizadas.",
-        professor: "Ronaldo",
+        texto: "Ajudar pessoas a compreenderem melhor a si mesmas.",
+        profissao: "Psicólogo",
       },
       {
-        texto: "Estudar junto com outras pessoas e trocar ideias.",
-        professor: "Júlio",
+        texto: "Compartilhar conhecimento e apoiar a aprendizagem.",
+        profissao: "Professor",
       },
       {
-        texto: "Fazer muitos exercícios para praticar.",
-        professor: "Noboru",
+        texto: "Levar informações relevantes ao público.",
+        profissao: "Jornalista",
       },
       {
-        texto: "Relacionar o conteúdo com situações do mundo real.",
-        professor: "Kamyla",
+        texto: "Desenvolver soluções que melhorem estruturas ou produtos.",
+        profissao: "Engenheiro",
       },
     ],
   },
 
   {
-    pergunta:
-      "Durante uma discussão, alguém apresenta uma opinião diferente da sua. Como você reagiria?",
+    pergunta: "Qual desafio você acharia mais gratificante?",
     alternativas: [
       {
-        texto: "Manteria meu posicionamento e explicaria meus argumentos.",
-        professor: "LaSalvia",
+        texto: "Contribuir para a recuperação ou o bem-estar de alguém.",
+        profissao: "Profissional da saúde",
       },
       {
-        texto: "Tentaria analisar os argumentos antes de responder.",
-        professor: "Marcela",
+        texto: "Defender uma posição com argumentos bem fundamentados.",
+        profissao: "Advogado",
       },
       {
-        texto: "Levaria a conversa de forma leve e descontraída.",
-        professor: "Ibsen",
+        texto: "Coordenar pessoas e recursos para atingir uma meta.",
+        profissao: "Administrador",
       },
       {
-        texto:
-          "Tentaria entender o contexto e de onde aquela opinião surgiu.",
-        professor: "Kamyla",
+        texto: "Descobrir algo novo por meio de testes e observações.",
+        profissao: "Cientista",
       },
     ],
   },
 
   {
-    pergunta: "Qual dessas situações mais combina com você?",
+    pergunta: "Qual frase combina mais com o seu jeito de pensar?",
     alternativas: [
       {
-        texto: "Gosto de explicar bastante e compartilhar o que sei.",
-        professor: "Heitor",
+        texto: "Gosto de entender como a tecnologia funciona e consertá-la.",
+        profissao: "Técnico em informática",
       },
       {
-        texto:
-          "Prefiro observar, ajudar quando necessário e aprender na prática.",
-        professor: "Ítalo",
+        texto: "Gosto de tomar iniciativa e transformar ideias em realidade.",
+        profissao: "Empreendedor",
       },
       {
-        texto: "Reviso meu trabalho para ter certeza de que ficou bem feito.",
-        professor: "Guilherme",
+        texto: "Gosto de criar soluções digitais usando lógica e código.",
+        profissao: "Desenvolvedor de software",
       },
       {
-        texto: "Procuro uma solução que funcione bem para todo mundo.",
-        professor: "Carolina",
+        texto: "Gosto de interpretar informações para encontrar respostas.",
+        profissao: "Analista de dados",
       },
     ],
   },
@@ -331,9 +292,9 @@ function mostrarPergunta() {
     botao.addEventListener("click", function () {
       console.log(alternativa);
 
-      const professorEscolhido = alternativa.professor;
+      const profissaoEscolhida = alternativa.profissao;
 
-      pontos[professorEscolhido]++;
+      pontos[profissaoEscolhida]++;
 
       console.log(pontos);
 
@@ -343,31 +304,14 @@ function mostrarPergunta() {
         mostrarPergunta();
       } else {
         let maiorPontuacao = 0;
-        let professorResultado = "";
+        let profissaoResultado = "";
 
-        professores.forEach(function (professor) {
-          if (pontos[professor] > maiorPontuacao) {
-            maiorPontuacao = pontos[professor];
-            professorResultado = professor;
+        profissoes.forEach(function (profissao) {
+          if (pontos[profissao] > maiorPontuacao) {
+            maiorPontuacao = pontos[profissao];
+            profissaoResultado = profissao;
           }
         });
-
-        let professorOuProfessora;
-        let artigoGenero;
-
-        if (
-          professorResultado == "Janice" ||
-          professorResultado == "Kamyla" ||
-          professorResultado == "Carolina" ||
-          professorResultado == "Marcela" ||
-          professorResultado == "Solange"
-        ) {
-          professorOuProfessora = "professora";
-          artigoGenero = "a"
-        } else {
-          professorOuProfessora = "professor";
-          artigoGenero = "o"
-        }
 
         quiz.innerHTML = `
           <div class="text-center">
@@ -376,19 +320,13 @@ function mostrarPergunta() {
             </h2>
 
             <p class="text-xl mt-2">
-              Você é ${artigoGenero} ${professorOuProfessora}
-              <strong>${professorResultado}</strong>!
+              A profissão que mais combina com você é
+              <strong>${profissaoResultado}</strong>!
             </p>
 
             <p class="text-base mt-4 text-gray-600">
-              ${descricoesProfessores[professorResultado]}
+              ${descricoesProfissoes[profissaoResultado]}
             </p>
-
-            <img
-              src="${fotoProfessores[professorResultado]}"
-              alt="${professorOuProfessora} ${professorResultado}"
-              class="w-64 h-64 object-cover rounded-xl mx-auto mt-6 shadow-lg"
-            >
           </div>
         `;
       }
