@@ -21,28 +21,40 @@ const profissoes = [
 const descricoesProfissoes = {
   "Desenvolvedor de software":
     "Você gosta de lógica, tecnologia e de criar soluções por meio da programação. Desenvolvimento de software pode combinar com seu perfil.",
+
   "Analista de dados":
     "Você gosta de encontrar padrões, interpretar informações e usar evidências para resolver problemas. A área de análise de dados pode combinar com você.",
+
   "Designer gráfico":
     "Você gosta de criatividade, comunicação visual e de transformar ideias em imagens e projetos. Design gráfico pode ser uma boa possibilidade.",
+
   "Psicólogo":
     "Você se interessa por comportamento, emoções e por ouvir as pessoas. A Psicologia pode combinar com seus interesses.",
+
   "Professor":
     "Você gosta de explicar ideias, compartilhar conhecimento e ajudar outras pessoas a aprender. A docência pode ser uma área interessante para você.",
+
   "Jornalista":
     "Você gosta de investigar assuntos, fazer perguntas e comunicar informações com clareza. Jornalismo pode combinar com seu perfil.",
+
   "Engenheiro":
     "Você gosta de entender como as coisas funcionam e encontrar soluções para desafios práticos. A Engenharia pode ser uma possibilidade.",
+
   "Profissional da saúde":
     "Você se interessa por cuidado, bem-estar e por contribuir diretamente para a vida das pessoas. As profissões da saúde podem combinar com você.",
+
   "Advogado":
     "Você gosta de argumentar, analisar situações e refletir sobre direitos e regras. Direito pode ser uma área a explorar.",
+
   "Administrador":
     "Você gosta de planejar, organizar tarefas e coordenar recursos para alcançar objetivos. Administração pode combinar com seu jeito de trabalhar.",
+
   "Cientista":
     "Você gosta de fazer perguntas, investigar fenômenos e descobrir como as coisas funcionam. Uma carreira científica pode combinar com sua curiosidade.",
+
   "Técnico em informática":
     "Você gosta de computadores, de resolver problemas técnicos e de ajudar a tecnologia a funcionar. A área de suporte e infraestrutura de TI pode combinar com você.",
+
   "Empreendedor":
     "Você gosta de tirar ideias do papel, tomar iniciativa e buscar soluções para necessidades reais. Empreendedorismo pode ser uma possibilidade para explorar.",
 };
@@ -277,7 +289,37 @@ const perguntas = [
 const quiz = document.getElementById("quiz");
 
 function mostrarPergunta() {
-  quiz.innerHTML = perguntas[perguntaAtual].pergunta;
+  const progresso =
+    ((perguntaAtual + 1) / perguntas.length) * 100;
+
+  quiz.innerHTML = `
+    <!-- BARRA DE PROGRESSO -->
+    <div class="mb-5">
+      <div class="flex justify-between items-center text-sm text-gray-600 mb-2">
+        <span class="font-semibold">Progresso </span>
+        <span>${perguntaAtual + 1} de ${perguntas.length}</span>
+      </div>
+
+      <div
+        class="w-full bg-gray-300 rounded-full h-3 overflow-hidden"
+        role="progressbar"
+        aria-label="Progresso do quiz"
+        aria-valuemin="1"
+        aria-valuemax="${perguntas.length}"
+        aria-valuenow="${perguntaAtual + 1}"
+      >
+        <div
+          class="bg-purple-700 h-3 rounded-full transition-all duration-500"
+          style="width: ${progresso}%"
+        ></div>
+      </div>
+    </div>
+
+    <!-- PERGUNTA ATUAL -->
+    <h3 class="text-lg font-bold text-[#2e1065] mb-4">
+      ${perguntas[perguntaAtual].pergunta}
+    </h3>
+  `;
 
   perguntas[perguntaAtual].alternativas.forEach(function (alternativa) {
     const botao = document.createElement("button");
@@ -285,53 +327,97 @@ function mostrarPergunta() {
     botao.textContent = alternativa.texto;
 
     botao.className =
-      "block w-full text-left bg-white border border-gray-300 rounded-lg p-3 mb-2 hover:bg-gray-300 transition";
+      "block w-full text-left bg-white border border-gray-300 rounded-lg p-3 mb-2 hover:bg-purple-100 hover:border-purple-500 transition-colors duration-200";
 
     quiz.appendChild(botao);
 
     botao.addEventListener("click", function () {
-      console.log(alternativa);
-
       const profissaoEscolhida = alternativa.profissao;
 
       pontos[profissaoEscolhida]++;
-
-      console.log(pontos);
 
       perguntaAtual++;
 
       if (perguntaAtual < perguntas.length) {
         mostrarPergunta();
       } else {
-        let maiorPontuacao = 0;
-        let profissaoResultado = "";
-
-        profissoes.forEach(function (profissao) {
-          if (pontos[profissao] > maiorPontuacao) {
-            maiorPontuacao = pontos[profissao];
-            profissaoResultado = profissao;
-          }
-        });
-
-        quiz.innerHTML = `
-          <div class="text-center">
-            <h2 class="text-2xl font-bold">
-              Quiz terminado!
-            </h2>
-
-            <p class="text-xl mt-2">
-              A profissão que mais combina com você é
-              <strong>${profissaoResultado}</strong>!
-            </p>
-
-            <p class="text-base mt-4 text-gray-600">
-              ${descricoesProfissoes[profissaoResultado]}
-            </p>
-          </div>
-        `;
+        mostrarResultado();
       }
     });
   });
+}
+
+function mostrarResultado() {
+  let maiorPontuacao = 0;
+  let profissoesResultado = [];
+
+  profissoes.forEach(function (profissao) {
+    if (pontos[profissao] > maiorPontuacao) {
+      maiorPontuacao = pontos[profissao];
+      profissoesResultado = [profissao];
+    } else if (pontos[profissao] === maiorPontuacao) {
+      profissoesResultado.push(profissao);
+    }
+  });
+
+  // Escolhe aleatoriamente entre as profissões empatadas.
+  const indiceAleatorio = Math.floor(
+    Math.random() * profissoesResultado.length
+  );
+
+  const profissaoResultado = profissoesResultado[indiceAleatorio];
+
+  quiz.innerHTML = `
+    <div class="mb-5">
+      <div class="flex justify-between items-center text-sm text-gray-600 mb-2">
+        <span class="font-semibold">Progresso  </span>
+        <span>${perguntas.length} de ${perguntas.length}</span>
+      </div>
+
+      <div class="w-full bg-gray-300 rounded-full h-3 overflow-hidden">
+        <div
+          class="bg-purple-700 h-3 rounded-full"
+          style="width: 100%"
+        ></div>
+      </div>
+    </div>
+
+    <div class="text-center py-4">
+      <h2 class="text-2xl font-bold text-[#2e1065]">
+        Quiz terminado!
+      </h2>
+
+      <p class="text-xl mt-4 text-gray-800">
+        A profissão que mais combina com você é
+        <strong>${profissaoResultado}</strong>!
+      </p>
+
+      <p class="text-base mt-4 text-gray-600">
+        ${descricoesProfissoes[profissaoResultado]}
+      </p>
+
+      <button
+        id="reiniciarQuiz"
+        class="mt-6 bg-purple-800 text-black font-semibold px-6 py-3 rounded-lg hover:bg-purple-950 transition-colors duration-200"
+      >
+        Refazer o quiz
+      </button>
+    </div>
+  `;
+
+  document
+    .getElementById("reiniciarQuiz")
+    .addEventListener("click", reiniciarQuiz);
+}
+
+function reiniciarQuiz() {
+  perguntaAtual = 0;
+
+  profissoes.forEach(function (profissao) {
+    pontos[profissao] = 0;
+  });
+
+  mostrarPergunta();
 }
 
 mostrarPergunta();
