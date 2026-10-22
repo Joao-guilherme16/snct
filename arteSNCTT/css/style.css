@@ -141,6 +141,19 @@ nav a:hover {
 }
 
 #introducao h2 {
+  color: #49206f;
+  font-size: clamp(55px, 7vw, 88px);
+  line-height: 1.08;
+  letter-spacing: 4px;
+  margin-bottom: 22px;
+}
+
+#introducao h2 span {
+  color: #a04bd4;
+}
+
+
+#introducao h2 {
   color: #382449;
   font-size: clamp(21px, 2.5vw, 28px);
   line-height: 1.4;
