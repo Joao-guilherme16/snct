@@ -1,0 +1,757 @@
+
+/* ===== CONFIGURAÇÕES GERAIS ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f9f6fc;
+  color: #30213f;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+/* ===== CABEÇALHO ===== */
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #e9dff3;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+#nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #6026a8;
+  font-size: 23px;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.brand small {
+  display: block;
+  color: #806a94;
+  font-size: 11px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+nav a {
+  color: #514064;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  transition: color 0.25s;
+}
+
+nav a:hover {
+  color: #a044d7;
+}
+
+/* ===== APRESENTAÇÃO ===== */
+#inicio {
+  min-height: 590px;
+  padding: 85px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 65px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 18%, #e5ccff 0, transparent 30%),
+    linear-gradient(130deg, #f8f1ff, #ffffff 72%);
+}
+
+#introducao {
+  flex: 1;
+  max-width: 650px;
+}
+
+.etiqueta,
+.sobretitulo {
+  display: inline-block;
+  color: #8736bd;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.etiqueta {
+  background: #edddfc;
+  padding: 8px 14px;
+  border-radius: 30px;
+  margin-bottom: 23px;
+}
+
+#introducao h1 {
+  color: #49206f;
+  font-size: clamp(55px, 7vw, 88px);
+  line-height: 1.08;
+  letter-spacing: -4px;
+  margin-bottom: 22px;
+}
+
+#introducao h1 span {
+  color: #a04bd4;
+}
+
+#introducao h2 {
+  color: #382449;
+  font-size: clamp(21px, 2.5vw, 28px);
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+#introducao p {
+  max-width: 570px;
+  color: #70617e;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.botao {
+  display: inline-block;
+  background: #712da8;
+  color: #ffffff;
+  padding: 13px 23px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 8px 20px #712da82b;
+  transition:
+    background 0.25s,
+    transform 0.25s;
+}
+
+.botao:hover {
+  background: #522078;
+  transform: translateY(-3px);
+}
+
+/* ===== ILUSTRAÇÃO ===== */
+.arte {
+  flex: 0 1 410px;
+  min-width: 0;
+  min-height: 330px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #d8b4f7, #8240bd);
+  border-radius: 48% 52% 63% 37% / 43% 42% 58% 57%;
+  box-shadow: 0 25px 60px #7540a526;
+}
+
+.arte img {
+  width: 100%;
+  max-height: 330px;
+  object-fit: contain;
+}
+
+.arte-legenda {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ===== SEÇÕES ===== */
+.secao-clara {
+  background: #ffffff;
+}
+
+#pesquisas,
+#cientistas,
+#desafios,
+#fontes {
+  padding: 85px 8%;
+}
+
+.cabecalho-secao {
+  max-width: 760px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.cabecalho-secao h2 {
+  color: #44215f;
+  font-size: clamp(29px, 4vw, 42px);
+  line-height: 1.25;
+  margin: 10px 0 16px;
+  letter-spacing: -1px;
+}
+
+.cabecalho-secao > p {
+  color: #766982;
+  font-size: 15px;
+}
+
+/* ===== CARTÕES DE PESQUISA ===== */
+.grade-pesquisas {
+  max-width: 1250px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.cartao-pesquisa {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 29px 25px;
+  background: #ffffff;
+  border: 1px solid #e9dff3;
+  border-radius: 17px;
+  box-shadow: 0 8px 28px #49206409;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    border-color 0.25s;
+}
+
+.cartao-pesquisa:hover {
+  transform: translateY(-5px);
+  border-color: #cda8e9;
+  box-shadow: 0 16px 35px #49206412;
+}
+
+.numero-cartao {
+  color: #8d40c0;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1.4px;
+  margin-bottom: 15px;
+}
+
+.cartao-pesquisa h3 {
+  color: #492366;
+  font-size: 21px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.cartao-pesquisa > p,
+.pergunta-cientifica p,
+.aprendizado p {
+  color: #74687f;
+  font-size: 14px;
+}
+
+.pergunta-cientifica,
+.aprendizado {
+  width: 100%;
+  padding: 17px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.pergunta-cientifica {
+  background: #f5edfc;
+  border-left: 3px solid #9a4dce;
+}
+
+.aprendizado {
+  background: #f8f5fa;
+  border-left: 3px solid #d0b0e6;
+  margin-bottom: 23px;
+}
+
+.pergunta-cientifica strong,
+.aprendizado strong {
+  display: block;
+  color: #602b82;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.link-fonte {
+  display: inline-block;
+  color: #8034b1;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px solid #d7b7ed;
+  padding-bottom: 3px;
+  margin-top: auto;
+  transition: color 0.2s;
+}
+
+.link-fonte:hover {
+  color: #4c1b73;
+  border-color: #4c1b73;
+}
+
+/* ===== CIENTISTAS ===== */
+#cientistas {
+  background:
+    radial-gradient(circle at 10% 10%, #f0e2fc, transparent 35%),
+    #f8f4fb;
+}
+
+.grade-cientistas {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.perfil-cientista {
+  background: #ffffff;
+  border: 1px solid #e8dcf2;
+  border-radius: 17px;
+  padding: 32px;
+  box-shadow: 0 10px 30px #49206408;
+}
+
+.perfil-area {
+  display: inline-block;
+  color: #8c3db9;
+  background: #f1e4fc;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.perfil-cientista h3 {
+  color: #482261;
+  font-size: 25px;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+
+.perfil-resumo {
+  color: #70617d;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.perfil-cientista ul {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.perfil-cientista li {
+  position: relative;
+  padding-left: 21px;
+  margin-bottom: 10px;
+  color: #584a66;
+  font-size: 13px;
+}
+
+.perfil-cientista li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: #9c4bcc;
+}
+
+/* ===== DESAFIOS E REPRESENTATIVIDADE ===== */
+.secao-desafios {
+  background: linear-gradient(135deg, #321447, #57247b);
+}
+
+.secao-desafios .cabecalho-secao h2 {
+  color: #ffffff;
+}
+
+.secao-desafios .cabecalho-secao > p {
+  color: #e1d0ed;
+}
+
+.secao-desafios .sobretitulo {
+  color: #d6a5f4;
+}
+
+.grade-desafios {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.grade-desafios article {
+  padding: 27px 24px;
+  background: #ffffff0d;
+  border: 1px solid #ffffff25;
+  border-radius: 14px;
+  transition:
+    transform 0.25s,
+    background 0.25s;
+}
+
+.grade-desafios article:hover {
+  transform: translateY(-4px);
+  background: #ffffff17;
+}
+
+.simbolo {
+  display: inline-block;
+  color: #e0b5ff;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.grade-desafios h3 {
+  color: #ffffff;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.grade-desafios p {
+  color: #e0d0eb;
+  font-size: 14px;
+}
+
+.reflexao {
+  max-width: 850px;
+  margin: 45px auto 0;
+  padding: 30px;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.reflexao h3 {
+  color: #4b2169;
+  font-size: 24px;
+  line-height: 1.4;
+  margin: 10px 0;
+}
+
+.reflexao p {
+  color: #756783;
+  font-size: 14px;
+}
+
+/* ===== FONTES ===== */
+.lista-fontes {
+  max-width: 900px;
+  margin: auto;
+}
+
+.lista-fontes > a {
+  display: grid;
+  grid-template-columns: 38px 1fr 25px;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+  margin-bottom: 13px;
+  background: #ffffff;
+  border: 1px solid #e9dff2;
+  border-radius: 12px;
+  text-decoration: none;
+  transition:
+    border-color 0.25s,
+    transform 0.25s;
+}
+
+.lista-fontes > a:hover {
+  border-color: #bd8fdf;
+  transform: translateX(4px);
+}
+
+.lista-fontes > a > span:first-child {
+  color: #9a4dc9;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.lista-fontes strong {
+  color: #4c2865;
+  font-size: 15px;
+}
+
+.lista-fontes p {
+  color: #796b84;
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+.lista-fontes .seta {
+  color: #8737b6;
+  font-size: 21px;
+  text-align: right;
+}
+
+.nota-fontes {
+  max-width: 850px;
+  margin: 25px auto 0;
+  color: #82748c;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ===== RODAPÉ ===== */
+#footer-escolar {
+  background: #241333;
+  color: #e9def5;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 45px;
+}
+
+.footer-secao {
+  flex: 1;
+}
+
+.footer-secao p {
+  color: #cbb9da;
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+.footer-secao strong,
+.titulo-grupo {
+  color: #ffffff !important;
+}
+
+.titulo-grupo {
+  font-size: 19px !important;
+  font-weight: bold;
+  margin-bottom: 12px !important;
+}
+
+.footer-ano {
+  padding: 18px;
+  text-align: center;
+  background: #1b0d27;
+  border-top: 1px solid #ffffff1c;
+}
+
+.footer-ano p {
+  color: #bda9cf;
+  font-size: 12px;
+}
+
+/* ===== ACESSIBILIDADE ===== */
+a:focus-visible {
+  outline: 3px solid #c48bf0;
+  outline-offset: 4px;
+}
+
+/* ===== TABLETS ===== */
+@media (max-width: 1000px) {
+  #inicio {
+    gap: 35px;
+    padding: 70px 6%;
+  }
+
+  .arte {
+    flex-basis: 340px;
+    min-height: 290px;
+  }
+
+  #pesquisas,
+  #cientistas,
+  #desafios,
+  #fontes {
+    padding: 70px 6%;
+  }
+
+  .grade-pesquisas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grade-pesquisas .cartao-pesquisa:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .grade-desafios {
+    grid-template-columns: 1fr;
+  }
+
+  .grade-desafios article {
+    padding: 24px;
+  }
+}
+
+/* ===== CELULARES ===== */
+@media (max-width: 650px) {
+  html {
+    scroll-padding-top: 130px;
+  }
+
+  #nav {
+    padding: 13px 18px;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .brand {
+    align-self: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  #inicio {
+    padding: 55px 7%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 35px;
+  }
+
+  #introducao h1 {
+    font-size: 58px;
+    letter-spacing: -3px;
+  }
+
+  #introducao h2 {
+    font-size: 22px;
+  }
+
+  #introducao p {
+    font-size: 15px;
+  }
+
+  .arte {
+    width: 100%;
+    min-height: 250px;
+    align-self: center;
+    border-radius: 35px;
+  }
+
+  .arte img {
+    max-height: 250px;
+  }
+
+  #pesquisas,
+  #cientistas,
+  #desafios,
+  #fontes {
+    padding: 55px 6%;
+  }
+
+  .cabecalho-secao {
+    margin-bottom: 30px;
+  }
+
+  .cabecalho-secao h2 {
+    font-size: 30px;
+  }
+
+  .grade-pesquisas,
+  .grade-cientistas {
+    grid-template-columns: 1fr;
+  }
+
+  .grade-pesquisas .cartao-pesquisa:last-child {
+    grid-column: auto;
+  }
+
+  .cartao-pesquisa,
+  .perfil-cientista {
+    padding: 24px;
+  }
+
+  .reflexao {
+    padding: 23px;
+  }
+
+  .reflexao h3 {
+    font-size: 21px;
+  }
+
+  .lista-fontes > a {
+    grid-template-columns: 25px 1fr 18px;
+    gap: 10px;
+    padding: 16px 12px;
+  }
+
+  .lista-fontes strong {
+    font-size: 13px;
+  }
+
+  .lista-fontes p {
+    font-size: 12px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 23px;
+    padding: 32px 23px;
+  }
+}
+
+/* ===== MOVIMENTO REDUZIDO ===== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
